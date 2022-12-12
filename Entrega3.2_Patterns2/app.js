@@ -1,7 +1,7 @@
 const Middleware = require('./Middleware');
 const numbers = require('./numbers');
 
-class Maths {
+class Operations {
 	add({ a, b }) {
 		return a + b;
 	}
@@ -13,7 +13,7 @@ class Maths {
 	}
 }
 
-const calculator = new Maths();
+const calculator = new Operations();
 const app = new Middleware(calculator);
 
 app.use((req, next) => {
