@@ -2,13 +2,13 @@ const Middleware = require('./Middleware');
 const numbers = require('./numbers');
 
 class Operations {
-	add({ a, b }) {
+	addition({ a, b }) {
 		return a + b;
 	}
-	subtract({ a, b }) {
+	subtraction({ a, b }) {
 		return a - b;
 	}
-	multiply({ a, b }) {
+	multiplication({ a, b }) {
 		return a * b;
 	}
 }
@@ -52,6 +52,6 @@ app.use((req, next) => {
 	next();
 });
 
-console.log(app.add(numbers[0]));
-console.log(app.subtract(numbers[1]));
-console.log(app.multiply(numbers[2]));
+console.log(app.addition(numbers[0]));
+console.log(app.subtraction(numbers[1]));
+console.log(app.multiplication(numbers[2]));
