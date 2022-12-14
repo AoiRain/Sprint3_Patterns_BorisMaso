@@ -30,7 +30,7 @@ const secondStep = (file) => {
 		if (error) return console.log('Error: File could not be saved!');
 		console.log(`${file} was successfully saved in the outbox!`);
 	};
-    readFile(join(inbox, file), 'utf8', thirdStep);
+	readFile(join(inbox, file), 'utf8', thirdStep);
 };
 
 readdir(inbox, firstStep);
