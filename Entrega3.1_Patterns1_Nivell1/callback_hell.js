@@ -16,21 +16,21 @@ const reverseText = (str) => str.split('').reverse().join('');
 // 	});
 // });
 
-const firstStep = (error, file) => {
+const processFiles = (error, file) => {
 	if (error) return console.log('Error: Folder inaccessible');
-	file.forEach(secondStep);
+	file.forEach(ReadAndWriteReversedContent);
 };
 
-const secondStep = (file) => {
-	const thirdStep = (error, data) => {
+const ReadAndWriteReversedContent = (file) => {
+	const writeReversedContent = (error, data) => {
 		if (error) return console.log('Error: File error');
-		writeFile(join(outbox, file), reverseText(data), fourthStep);
+		writeFile(join(outbox, file), reverseText(data), errorCheck);
 	};
-	const fourthStep = (error) => {
+	const errorCheck = (error) => {
 		if (error) return console.log('Error: File could not be saved!');
 		console.log(`${file} was successfully saved in the outbox!`);
 	};
-	readFile(join(inbox, file), 'utf8', thirdStep);
+	readFile(join(inbox, file), 'utf8', writeReversedContent);
 };
 
-readdir(inbox, firstStep);
+readdir(inbox, processFiles);
